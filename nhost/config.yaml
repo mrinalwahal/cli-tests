@@ -1,0 +1,46 @@
+authentication:
+  endpoints:
+    provider_failure_redirect: http://localhost:3000/login-fail
+    provider_success_redirect: http://localhost:3000
+  providers:
+    facebook:
+      client_id: ""
+      client_secret: ""
+      enable: false
+    github:
+      client_id: ""
+      client_secret: ""
+      enable: false
+    google:
+      client_id: ""
+      client_secret: ""
+      enable: false
+    linkedin:
+      client_id: ""
+      client_secret: ""
+      enable: false
+environment:
+  env_file: /home/falcon/go/src/github.com/mrinalwahal/cli-tests/.env.development
+  hasura_cli_version: v2.0.0-alpha.11
+metadata_directory: metadata
+services:
+  api:
+    port: 4000
+  hasura:
+    admin_secret: hasura-admin-secret
+    console_port: 9695
+    image: hasura/graphql-engine
+    port: 8080
+    version: v1.3.3
+  hasura_backend_plus:
+    port: 9001
+    version: v2.5.0
+  minio:
+    port: 9000
+    version: latest
+  postgres:
+    password: postgres
+    port: 5432
+    user: postgres
+    version: "12"
+version: 2
